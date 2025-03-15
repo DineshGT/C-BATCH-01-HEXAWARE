@@ -1,0 +1,56 @@
+CREATE database TechShop;
+
+use TechShop;
+
+-- the database contains customers, products, orders, orderdetails, inventory.. so first creating all tables
+
+create table Customers
+(
+	cust_id INT PRIMARY KEY,
+	first_name VARCHAR(30) not null, -- no null values
+	last_name VARCHAR(30),
+	cust_email VARCHAR(40) unique,
+	cust_phone NUMERIC(10),
+	cust_address VARCHAR(50) 
+
+);
+
+create table Products
+(
+	prod_id INT PRIMARY KEY,
+	prod_name VARCHAR(30) not null,
+	prod_description VARCHAR(50),
+	prod_price NUMERIC(8)
+
+);
+
+
+create table orders
+(
+	order_id INT PRIMARY KEY,
+	cust_id INT,
+	order_date DATE,
+	total_amnt NUMERIC(8),
+	FOREIGN KEY (cust_id) references Customers(cust_id)
+);
+
+create table order_details
+(
+	order_detail_id INT PRIMARY KEY,
+	order_id INT,
+	prod_id INT,
+	quantity INT,
+	FOREIGN KEY (order_id) references Orders(order_id),
+	FOREIGN KEY (prod_id) references Products(prod_id)
+
+);
+
+
+create table Inventory(
+	inventory_id INT PRIMARY KEY,
+	prod_id INT,
+	quantityInStock INT,
+	lastStockUpdate DATE,
+	FOREIGN KEY (prod_id) references Products(prod_id)
+
+);
