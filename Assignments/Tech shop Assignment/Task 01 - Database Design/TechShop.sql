@@ -1,6 +1,9 @@
+-- Task 01 : Database Design
+
 CREATE database TechShop;
 
 use TechShop;
+
 
 -- the database contains customers, products, orders, orderdetails, inventory.. so first creating all tables
 
@@ -132,3 +135,58 @@ VALUES
 (30, 10, 35, '2025-03-10');
 
 
+-- Task 01 : Select, Where, Between, And, Like
+
+-- 1. Write an SQL query to retrieve the names and emails of all customers
+
+Select Customers.first_name, Customers.last_name, Customers.cust_email 
+FROM Customers;
+
+-- 2. Write an SQL query to list all orders with their order dates and corresponding customer names
+
+Select orders.order_date, Customers.first_name AS Customer_name
+FROM orders
+INNER JOIN Customers
+ON
+orders.cust_id = Customers.cust_id;
+
+-- 3. Write an SQL query to insert a new customer record into the "Customers" table. Include 
+--customer information such as name, email, and address.
+
+Insert into Customers
+(cust_id, first_name, last_name, cust_email, cust_address)
+Values
+(111,'Peter', 'Parker', 'park@peet', '23ihgsf');
+
+-- 4. Write an SQL query to update the prices of all electronic gadgets in the "Products" table by 
+--increasing them by 10%.
+
+Update Products
+set prod_price = prod_price + ((prod_price/100)*10)
+
+Select Products.prod_price from Products;
+
+
+-- 5. Write an SQL query to delete a specific order and its associated order details from the 
+--"Orders" and "OrderDetails" tables. Allow users to input the order ID as a parameter.
+
+
+Delete from order_details where order_id = 10;
+select * from order_details;
+
+Delete from orders where order_id = 10;
+select * from orders;
+
+
+-- 6. Write an SQL query to insert a new order into the "Orders" table. Include the customer ID, 
+--order date, and any other necessary information.
+
+Insert into orders
+(order_id, cust_id, order_date, total_amnt)
+values
+(10, 109, '2025-03-19', 29000);
+
+
+
+-- Write an SQL query to update the contact information (e.g., email and address) of a specific 
+--customer in the "Customers" table. Allow users to input the customer ID and new contact information.
