@@ -188,5 +188,53 @@ values
 
 
 
--- Write an SQL query to update the contact information (e.g., email and address) of a specific 
+-- 7. Write an SQL query to update the contact information (e.g., email and address) of a specific 
 --customer in the "Customers" table. Allow users to input the customer ID and new contact information.
+
+
+Update Customers
+set cust_email = 'kumardinesh@gmail.com', cust_address = 'sfsfsfs'
+Where cust_id = 103;
+
+select Customers.cust_id, Customers.cust_email, Customers.cust_address from Customers;
+
+
+-- 8. Write an SQL query to recalculate and update the total cost of each order in the "Orders" 
+ --table based on the prices and quantities in the "OrderDetails" table.
+
+ 
+ 
+
+ -- 9. Write an SQL query to delete all orders and their associated order details for a specific 
+--customer from the "Orders" and "OrderDetails" tables. Allow users to input the customer ID as a parameter.
+
+Delete from orders
+where orders.cust_id = 101;
+
+Delete from order_details
+where order_id in (Select order_id from orders where orders.cust_id = 101);
+
+-- 10. Write an SQL query to insert a new electronic gadget product into the "Products" table, 
+--including product name, category, price, and any other relevant details.
+
+insert INTO Products 
+(prod_id, prod_name, prod_description, prod_price) 
+VALUES
+(11, 'Mouse', 'Gaming mouse', 2000);
+
+
+
+-- 11. Write an SQL query to update the status of a specific order in the "Orders" table (e.g., from 
+--"Pending" to "Shipped"). Allow users to input the order ID and the new status.
+
+-- There is no such column present so we can't update with order id
+
+
+-- 12. Write an SQL query to calculate and update the number of orders placed by each customer 
+-- in the "Customers" table based on the data in the "Orders" table.
+
+Select Customers.cust_id, count(*) AS numberOfOrdersPlaced
+From Customers
+inner join orders
+ON Customers.cust_id = orders.cust_id
+group by Customers.cust_id;
