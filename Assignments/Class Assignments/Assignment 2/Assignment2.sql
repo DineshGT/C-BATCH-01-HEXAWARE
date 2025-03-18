@@ -155,3 +155,12 @@ where Employee.emp_salary not between 1500 AND 2850;
 
 --15. Find all managers who have more than 2 employees reporting to them
 
+Select Employee.manager_id, count(Employee.emp_no) AS No_of_emp
+From Employee
+Group by manager_id 
+Having count(emp_no) > 2;
+
+
+
+
+
