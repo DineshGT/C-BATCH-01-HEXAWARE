@@ -80,7 +80,20 @@ where Employee.emp_salary Between 1200 AND 1400;
 -- 4. Give all the employees in the RESEARCH department a 10% pay rise. 
 --Verify that this has been done by listing all their details before and after the rise. 
 
+Select *
+From Employee e
+JOIN Department d ON e.dept_no = d.dept_no
+Where d.dept_name = 'RESEARCH';
 
+--Update Employee
+--set emp_salary = emp_salary + emp_salary* 0.10
+--Where dept_no = (Select dept_no From Department Where dept_name = 'RESEARCH');
+
+
+Select *, (emp.emp_salary+ emp.emp_salary * 0.10) As Updated_salary
+From Employee emp  
+Inner Join Department dept ON emp.dept_no = dept.dept_no  
+Where dept.dept_name = 'RESEARCH';
 
 
 --5. Find the number of CLERKS employed. Give it a descriptive heading. 
