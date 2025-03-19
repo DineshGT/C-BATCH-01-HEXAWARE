@@ -128,3 +128,11 @@ Select AVG(emp_salary * 12) As Average_annual_salary From Employee;
 Select Employee.emp_name, Employee.emp_job, Employee.emp_salary, Employee.dept_no 
 From Employee
 where Employee.emp_job != 'SALESMAN' AND Employee.dept_no = 30;
+
+
+
+-- list the names, job, salary of all emp whose job is same as as and salary is less than any of emp whose job is salesman
+
+
+Select Employee.emp_name, Employee.emp_job, Employee.emp_salary From Employee
+where Employee.emp_salary < any(Select emp_salary From Employee where emp_job = 'SALESMAN');
