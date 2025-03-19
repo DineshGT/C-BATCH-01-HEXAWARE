@@ -374,10 +374,9 @@ Where orders.order_date Between '2025-03-01' AND '2025-03-08';
 
 --1. Write an SQL query to find out which customers have not placed any orders.
 
-Select * From Customers
-Left Join orders on
-Customers.cust_id = orders.cust_id
-Where order_id is NULL;
+Select Customers.cust_id, Customers.first_name
+From Customers
+where cust_id not in(Select Distinct cust_id From Orders);
 
 
 --2. Write an SQL query to find the total number of products available for sale.
@@ -405,9 +404,7 @@ where Products.prod_id = 11; -- for 1, 6, 9, and 11
 
 Select Avg(order_details.quantity) As Average_quantity
 From order_details
-Join Products
-on order_details.prod_id = Products.prod_id
-Where Products.category = 'Gaming';
+Where prod_id in (Select prod_id From Products where Category = 'Gaming');
 
 
 
@@ -428,7 +425,6 @@ Where Customers.cust_id = 105;
 
 
 
-
 --7. Write an SQL query to find the most popular product category, which is the one with the highest
 --total quantity ordered across all orders.
 
@@ -437,8 +433,11 @@ Where Customers.cust_id = 105;
 --on electronic gadgets. List their name and total spending.
 
 
+
+
 --9. Write an SQL query to calculate the average order value (total revenue divided by the number of
 --orders) for all customers.
+
 
 --10. Write an SQL query to find the total number of orders placed by each customer and list their
 --names along with the order count
