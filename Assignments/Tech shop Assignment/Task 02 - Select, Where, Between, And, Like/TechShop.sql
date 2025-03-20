@@ -202,6 +202,14 @@ select Customers.cust_id, Customers.cust_email, Customers.cust_address from Cust
 -- 8. Write an SQL query to recalculate and update the total cost of each order in the "Orders" 
  --table based on the prices and quantities in the "OrderDetails" table.
 
+Update Orders 
+set total_amnt = (
+   select sum(od.quantity * p.prod_price)
+   from order_details od
+   join Products p on od.prod_id= p.prod_id
+   where od.order_id=orders.order_id
+   );
+
  
 
  -- 9. Write an SQL query to delete all orders and their associated order details for a specific 
@@ -227,8 +235,22 @@ VALUES
 --"Pending" to "Shipped"). Allow users to input the order ID and the new status.
 
 
--- There is no such column present so we can't update with order id
+-- There is no such column present so we updating the table orders..
 
+Alter table orders
+Add order_status VARCHAR(20);
+
+Update orders
+Set order_status = 'Pending'
+where order_id = 10;
+
+Select * from orders;
+
+update orders
+Set orders.order_status = 'Shipped'
+where order_id = 4;
+
+Select * From orders;
 
 -- 12. Write an SQL query to calculate and update the number of orders placed by each customer 
 -- in the "Customers" table based on the data in the "Orders" table.

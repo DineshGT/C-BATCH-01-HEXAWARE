@@ -423,10 +423,22 @@ Where Customers.cust_id = 105;
 --6. Write an SQL query to find the customers who have placed the most orders. List their names
 --and the number of orders they've placed.
 
+Select Top 1 first_name, last_name, 
+       (Select Count(order_id) FROM Orders o WHERE o.cust_id = c.cust_id) AS order_count
+From Customers c
+Order by order_count DESC;
+
 
 
 --7. Write an SQL query to find the most popular product category, which is the one with the highest
 --total quantity ordered across all orders.
+
+Select Top 1 category, 
+       (Select SUM(quantity) FROM Order_Details WHERE prod_id IN 
+        (Select prod_id FROM Products p2 Where p2.category = p1.category)) AS total_quantity_ordered
+From Products p1
+Group by category
+Order by total_quantity_ordered DESC;
 
 
 --8. Write an SQL query to find the customer who has spent the most money (highest total revenue)
@@ -435,9 +447,18 @@ Where Customers.cust_id = 105;
 
 
 
+
 --9. Write an SQL query to calculate the average order value (total revenue divided by the number of
 --orders) for all customers.
+
+Select (Select Sum(total_amnt) From Orders) / 
+       (Select Count(order_id) From Orders) AS avg_order_value;
 
 
 --10. Write an SQL query to find the total number of orders placed by each customer and list their
 --names along with the order count
+
+Select first_name, last_name, 
+       (Select count(order_id) From Orders Where cust_id = c.cust_id) AS total_orders
+From Customers c
+Order by total_orders DESC;
