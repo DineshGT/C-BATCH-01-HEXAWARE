@@ -1,0 +1,152 @@
+use hexadb
+
+select * from Employee
+
+update Employee set deptno = 2 where empid in(1,2)
+
+update employee set deptno = 1 where empid=4
+
+select * from employee 
+order by deptno desc, empname 
+
+--Group By
+--Divides the rows of the table into smaller sections/groups/categories
+--Can group on multiple columns
+--Cannot use alias column 
+--Any Column or expression in the select list, that is not an
+--   aggregate function must be in the group by clause
+--since rows are sorted by the ascending order of the group, we can override the same with order by clause
+
+select deptno , avg(salary)as Average from employee
+--where avg(salary) > 5000   -- cannot have aggregates to the RHS of a where clause -illegal
+group by deptno
+order by deptno desc
+
+--ex1 
+--display job wise sum of salary for every department
+
+--ex 2
+--list all average salaries for each department where the avg(sal) is > 5000
+select deptno , avg(salary)as Average from employee
+group by deptno
+having avg(salary)>5000
+order by deptno desc
+
+--ex 3
+--display the no.of employees under each manager
+--ex 4
+-- list no. of males and females in each dept
+select deptno, gender, count(empid)'Emp Gender' from employee
+where gender not in('others',null)
+group by deptno,gender
+order by deptno
+
+select deptno, gender, count(*)'Emp Gender' from employee
+--where gender not in('others',null)
+group by deptno,gender
+order by deptno
+
+--list dept wise minimum salary only if it is >5000
+
+select deptno, min(salary)as 'Minimum Salary' from employee
+group by deptno
+having min(salary)>5000
+
+--managers with more than 2 employees reporting to them
+select mgr_id,count(empno) as 'Emp Count' from emp
+group by mgr_id
+having count(empno)>2
+
+--Joins
+--Employee_Personal_Details  alias epd
+--Employee_Project_Schedules alias eps
+
+select * from department
+select * from employee
+
+insert into employee values(9,'Makeshwar',5400,'Male',null,12345)
+
+--earlier way to join 2 tables
+select empid,empname,salary,deptname from employee,department 
+where deptno = deptid
+
+--using inner join
+select empid,empname,salary,deptname from employee inner join department
+on employee.Deptno = department.Deptid
+
+select empid,empname,salary,deptname from employee join department
+on employee.Deptno = department.Deptid
+
+--cross join
+--earlier way to cross join
+select * from employee,department
+
+--with cross join
+select * from employee cross join department
+
+--outer joins
+--1. left outer join or left join
+
+select empid,empname,salary,deptname from employee left outer join department
+on employee.Deptno = department.Deptid
+
+--or
+select empid,empname,salary,deptname from employee left join department
+on employee.Deptno = department.Deptid
+
+--2. Right Outer Join
+select empid,empname,salary,deptname from employee right join department
+on employee.Deptno = department.Deptid
+
+select empid,empname,salary,deptname from employee right outer join department
+on employee.Deptno = department.Deptid
+
+--3. full outer join
+select empid,empname,salary,deptname from employee full outer join department
+on employee.Deptno = department.Deptid
+
+--or
+select empid,empname,salary,deptname from employee full join department
+on employee.Deptno = department.Deptid
+
+
+--self joins
+--expects alias names to be given to the table as it is a mirror copy
+--list the names of employees and their managers
+select e1.ename as 'Employee Name' , e2.ename as 'Manager Name' from emp e1 join emp e2
+on e1.empno = e2.mgr_id
+
+--joining more tables
+/* 
+ select col1, col2... 
+ from table 1 join table2 on condition 
+ join table 3 on condition join table 4
+
+ */
+ use northwind
+ select * from Products
+
+ --limit and offsets
+ select productname, unitprice
+ from products 
+ order by productname
+ offset 10 rows
+ fetch next 10 rows only
+
+ --Inbuilt-Functions
+ --Strings
+   select lower('HELLO WORLD')
+   select replace ('Jack and Jil','J','BL')
+
+   select ASCII('D')
+   select substring('This is SQL Session',9,3)
+   select concat('Happy ','Birthday ', 'to ','you',' 18th March')
+ -- Date Functions
+ select getdate()
+ select datediff(MONTH,'10/03/2017',getdate())
+ select DATENAME(DW,getdate())
+
+ select convert(varchar(12),getdate(),113)
+
+
+ 
