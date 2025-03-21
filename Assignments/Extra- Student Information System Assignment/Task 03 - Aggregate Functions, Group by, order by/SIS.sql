@@ -196,47 +196,100 @@ Set amount = 750 where payment_id = 5;
 --1. Write an SQL query to calculate the total payments made by a specific student. You will need to 
 --join the "Payments" table with the "Students" table based on the student's ID. 
 
+Select first_name, sum(Payments.amount) As Payment_made
+From Students
+Left Join Payments
+on Students.std_id = Payments.std_id
+where Students.std_id =1
+group by first_name;
 
 
 --2. Write an SQL query to retrieve a list of courses along with the count of students enrolled in each 
 --course. Use a JOIN operation between the "Courses" table and the "Enrollments" table. 
 
+Select Courses.course_id, Courses.course_name, Count(Enrollments.std_id) As Count_of_stds
+From Courses
+Left Join
+Enrollments on Courses.course_id = Enrollments.course_id
+Group by Courses.course_id, course_name;
+
 
 --3. Write an SQL query to find the names of students who have not enrolled in any course. Use a 
 --LEFT JOIN between the "Students" table and the "Enrollments" table to identify students without enrollments. 
 
-
+Select Students.first_name, Students.last_name 
+From Students
+Left Join
+Enrollments on Students.std_id = Enrollments.std_id
+Where Enrollments.std_id is Null;
 
 --4. Write an SQL query to retrieve the first name, last name of students, and the names of the 
 --courses they are enrolled in. Use JOIN operations between the "Students" table and the 
 --"Enrollments" and "Courses" tables. 
+
+Select Students.first_name, Students.last_name, Courses.course_name
+From Students
+Join Enrollments 
+On Students.std_id = Enrollments.std_id
+Join Courses 
+On Courses.course_id = Enrollments.course_id;
 
 
 
 --5. Create a query to list the names of teachers and the courses they are assigned to. Join the 
 --"Teacher" table with the "Courses" table. 
 
+Select Teacher.first_name, Teacher.last_name, Courses.course_name
+From Teacher
+Join Courses On
+Teacher.teacher_id = Courses.teacher_id
+Order by course_name;
 
 
 --6. Retrieve a list of students and their enrollment dates for a specific course. You'll need to join the 
 --"Students" table with the "Enrollments" and "Courses" tables. 
 
+Select Students.std_id, Students.first_name, Enrollments.enrollment_date, Courses.course_name
+From Students
+Join Enrollments On Students.std_id = Enrollments.std_id
+Join Courses On Enrollments.course_id = Courses.course_id
+Where Courses.course_id = 400;
 
 
 --7. Find the names of students who have not made any payments. Use a LEFT JOIN between the 
 --"Students" table and the "Payments" table and filter for students with NULL payment records. 
+
+Select Students.first_name, Students.last_name
+From Students
+Left Join Payments on Students.std_id = Payments.std_id
+Where Payments.std_id is NUll;
 
 
 
 --8. Write a query to identify courses that have no enrollments. You'll need to use a LEFT JOIN 
 --between the "Courses" table and the "Enrollments" table and filter for courses with NULL enrollment records.
 
+Select Courses.course_name
+From Courses
+Left Join Enrollments ON Courses.course_id = Enrollments.course_id
+WHERE Enrollments.course_id IS NULL;
 
 
 --9. Identify students who are enrolled in more than one course. Use a self-join on the "Enrollments" 
 --table to find students with multiple enrollment records. 
 
+Select Students.std_id, Students.first_name, Count(Enrollments.std_id) As Courses_enrolled
+From students
+Join Enrollments on Students.std_id = Enrollments.std_id
+Group by Students.std_id, first_name
+Having count(Enrollments.std_id)>1;
+
 
 
 --10. Find teachers who are not assigned to any courses. Use a LEFT JOIN between the "Teacher" 
 --table and the "Courses" table and filter for teachers with NULL course assignments. 
+
+Select Teacher.first_name, Teacher.last_name
+From Teacher
+Left Join Courses On Teacher.teacher_id = Courses.teacher_id
+WHERE Courses.teacher_id IS NULL;
