@@ -76,6 +76,18 @@ Where Employee.manager_id in (Select emp_no From Employee Where emp_name Like '[
 
 
 4. Use Northwid database to solve :
-   a) Find products that are more expensive than the average price of products in their own category. Include the category name, product name, and unit price in the result.
 
-   b) For each category, display its name, the number of discontinued products in this category (discontinued), and the number of all products in this category 
+   --a) Find products that are more expensive than the average price of products in their own category. 
+   --Include the category name, product name, and unit price in the result.
+
+   Select Top 10 CategoryName, ProductName, UnitPrice
+From Products
+Join Categories ON Products.CategoryID = Categories.CategoryID
+Where Products.UnitPrice > (
+    Select avg(p2.UnitPrice) From Products p2 Where p2.CategoryID = Products.CategoryID);
+);
+
+   --b) For each category, display its name, the number of discontinued products in this category (discontinued),
+   --and the number of all products in this category 
+
+   
