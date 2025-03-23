@@ -101,7 +101,8 @@ INSERT INTO Enrollments (enrollment_id, std_id, course_id, enrollment_date) VALU
 (10, 10, 1000, '2024-10-10');
 
 
-INSERT INTO Payments (payment_id, std_id, amount, payment_date) VALUES
+Insert into Payments (payment_id, std_id, amount, payment_date) 
+Values
 (1, 1, 500.00, '2024-01-20'),
 (2, 2, 600.00, '2024-02-15'),
 (3, 3, 550.00, '2024-03-10'),
@@ -329,32 +330,58 @@ where course_id in (Select course_id From Enrollments
 --4. Calculate the total payments made to courses taught by each teacher. Use subqueries to sum 
 --payments for each teacher's courses. 
 
+Select Courses.teacher_id, Courses.course_id, Sum(Payments.amount) As Total
+From Courses
+Left join Enrollments on Courses.course_id = Enrollments.course_id
+Left Join Payments On Enrollments.std_id = Payments.std_id
+Group by Courses.teacher_id, Courses.course_id;
 
 
-
+Select Courses.teacher_id, Courses.course_id, 
+                    (Select Sum(Payments.amount) From Payments 
+					     Where Payments.std_id in (Select Enrollments.std_id From Enrollments
+						                   Where Enrollments.course_id = Courses.course_id))As Total
+										   From Courses
+										   Group by Courses.teacher_id, Courses.course_id;
 
 --5. Identify students who are enrolled in all available courses. Use subqueries to compare a 
 --student's enrollments with the total number of courses. 
-
-
+Select Students.std_id, Students.first_name
+From Students where (Select Count(Enrollments.enrollment_id) From Enrollments
+						        Where Enrollments.std_id = Students.std_id) = (Select Count(*) From Courses);
+Select * From Enrollments;
 
 
 --6. Retrieve the names of teachers who have not been assigned to any courses. Use subqueries to 
 --find teachers with no course assignments. 
 
+Select Teacher.first_name, Teacher.last_name 
+From Teacher Where Not Exists (Select 1 From Courses Where Courses.teacher_id = Teacher.teacher_id);
 
 --7. Calculate the average age of all students. Use subqueries to calculate the age of each student 
 --based on their date of birth.
 
+--Select Students.std_id, Students.first_name 
+-- Don't know how to solve this..
+
 
 --8. Identify courses with no enrollments. Use subqueries to find courses without enrollment records. 
+
+Select Courses.course_id, course_name From Courses
+Where Not Exists (Select 1 From Enrollments Where Courses.course_id = Enrollments.course_id );
+
 
 
 --9. Calculate the total payments made by each student for each course they are enrolled in. Use 
 --subqueries and aggregate functions to sum payments.
 
 
-
+Select Students.std_id, Students.first_name,
+						(Select Sum(Payments.amount) From Payments 
+					     Where Payments.std_id in (Select Enrollments.std_id From Enrollments
+						                   Where Enrollments.std_id = Students.std_id))As Total
+										   From Students
+										   Group by Students.std_id, Students.first_name;
 
 
 --10. Identify students who have made more than one payment. Use subqueries and aggregate 
