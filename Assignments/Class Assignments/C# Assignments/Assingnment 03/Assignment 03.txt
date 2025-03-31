@@ -1,0 +1,11 @@
+Assignment 1 : Inheritance
+   Create classes employee and manager. An employee will have attributes/fields viz. id, name, dob, salary. 
+    A manager will extend/derive from an employee. He will additionally have onsite_allowance and bonus as attributes.
+    Compute the salary of an employee and manager
+
+    1. use parameterized constructor from child to call base constructor
+    2. overriding's to be used
+
+
+Assignment 2 : static
+  you are a s/w developer in ABC Consultancy firm. You need to check how many times a function is called. For this you have been asked to create a function called CountFunction(). create the function the satisfy the no.of times it is being called
