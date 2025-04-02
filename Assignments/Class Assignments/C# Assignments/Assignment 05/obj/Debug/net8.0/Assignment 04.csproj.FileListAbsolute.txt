@@ -1,0 +1,14 @@
+C:\Users\Dinesh G T\source\repos\Assignment 04\bin\Debug\net8.0\Assignment 04.exe
+C:\Users\Dinesh G T\source\repos\Assignment 04\bin\Debug\net8.0\Assignment 04.deps.json
+C:\Users\Dinesh G T\source\repos\Assignment 04\bin\Debug\net8.0\Assignment 04.runtimeconfig.json
+C:\Users\Dinesh G T\source\repos\Assignment 04\bin\Debug\net8.0\Assignment 04.dll
+C:\Users\Dinesh G T\source\repos\Assignment 04\bin\Debug\net8.0\Assignment 04.pdb
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.AssemblyInfoInputs.cache
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.AssemblyInfo.cs
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.csproj.CoreCompileInputs.cache
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.dll
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\refint\Assignment 04.dll
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.pdb
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\Assignment 04.genruntimeconfig.cache
+C:\Users\Dinesh G T\source\repos\Assignment 04\obj\Debug\net8.0\ref\Assignment 04.dll
