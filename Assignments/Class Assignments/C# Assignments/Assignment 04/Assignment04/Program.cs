@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using static assi4.assi4;
 
 namespace assi4
 {
@@ -137,13 +138,81 @@ namespace assi4
 
         }
 
+
+        // Interface..
+
+        interface Istudent
+        {
+            //fields
+            int std_id { get; set; }
+            string? std_name { get; set; }
+            decimal? std_fees { get; set; }
+
+            void ShowDetails();
+
+
+        }
+
+        public class Dayscholar : Istudent
+        {
+            public int std_id { get; set; }
+            public string? std_name { get; set; }
+            public decimal? std_fees { get; set; }
+
+            public Dayscholar(int std_id, string? std_name, decimal? std_fees)
+            {
+                this.std_id = std_id;
+                this.std_name = std_name;
+                this.std_fees = std_fees;
+            }
+
+            public void ShowDetails()
+            {
+                Console.WriteLine("Dayscholar Details:");
+                Console.WriteLine($"ID: {std_id}, Name: {std_name}, Fees: {std_fees}\n");
+            }
+
+
+
+        }
+
+        public class Resident : Istudent
+        {
+            public int std_id { get; set; }
+            public string? std_name { get; set; }
+            public decimal? std_fees { get; set; }
+
+            public Resident(int std_id, string? std_name, decimal? std_fees)
+            {
+                this.std_id = std_id;
+                this.std_name = std_name;
+                this.std_fees = std_fees;
+            }
+
+            public void ShowDetails()
+            {
+                Console.WriteLine("Resident Details:");
+                Console.WriteLine($"ID: {std_id}, Name: {std_name}, Fees: {std_fees}\n");
+            }
+        }
+
+
+
         public static void Main(string[] args)
         {
             stringfunc();
-            Resultcheck student1 = new Resultcheck("John Doe", 101, "10th", "2nd", "Science");
-            student1.GetMarks();
-            student1.DisplayData();
-            student1.DisplayResult();
+            Resultcheck std1 = new Resultcheck("John Doe", 101, "10th", "2nd", "Science");
+            std1.GetMarks();
+            std1.DisplayData();
+            std1.DisplayResult();
+
+            //interface
+
+            Istudent student1 = new Dayscholar(101, "John Doe", 5000.50m);
+            Istudent student2 = new Resident(102, "Jane Smith", 7500.75m);
+
+            student1.ShowDetails();
+            student2.ShowDetails();
         }
 
 
