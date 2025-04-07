@@ -6,7 +6,7 @@ use TechShop;
 
 
 -- the database contains customers, products, orders, orderdetails, inventory.. so first creating all tables
-
+Select * From Customers;
 create table Customers
 (
 	cust_id INT PRIMARY KEY,
@@ -18,6 +18,10 @@ create table Customers
 
 );
 
+
+--Delete from Products where prod_id = 9589;
+
+Select * From Products;
 create table Products
 (
 	prod_id INT PRIMARY KEY,
@@ -27,7 +31,7 @@ create table Products
 
 );
 
-
+Select * From orders;
 create table orders
 (
 	order_id INT PRIMARY KEY,
@@ -37,6 +41,7 @@ create table orders
 	FOREIGN KEY (cust_id) references Customers(cust_id)
 );
 
+Select * From order_details;
 create table order_details
 (
 	order_detail_id INT PRIMARY KEY,
@@ -48,7 +53,7 @@ create table order_details
 
 );
 
-
+Select * From Inventory;
 create table Inventory(
 	inventory_id INT PRIMARY KEY,
 	prod_id INT,
@@ -88,6 +93,13 @@ VALUES
 (8, 'External Hard Drive', '1TB portable storage', 5500),
 (9, 'Monitor', '27-inch Full HD monitor', 18500),
 (10, 'Bluetooth Speaker', 'Waterproof portable speaker', 4000);
+
+
+-- adding new column to maintain product is active or discontinuedd..
+
+Alter Table Products
+Add is_active BIT default 1;
+
 
 
 insert INTO Orders (order_id, cust_id, order_date, total_amnt) 
@@ -133,6 +145,15 @@ VALUES
 (28, 8, 45, '2025-03-08'),
 (29, 9, 20, '2025-03-09'),
 (30, 10, 35, '2025-03-10');
+
+--newly added table for Payment records management
+
+CREATE TABLE PaymentRecord (
+    payment_id INT PRIMARY KEY,
+    order_id INT FOREIGN KEY REFERENCES Orders(order_id),
+    amount FLOAT NOT NULL,
+    status VARCHAR(20) NOT NULL
+);
 
 
 -- Task 02 : Select, Where, Between, And, Like
