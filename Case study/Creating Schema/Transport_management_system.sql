@@ -61,6 +61,18 @@ Create Table Bookings (
 );
 
 
+-- Creating new Table Drivers for Case study
+
+CREATE TABLE Drivers (
+    Driver_id INT IDENTITY(1,1) PRIMARY KEY,
+    First_name VARCHAR(100),
+    Last_name VARCHAR(100),
+    License_number VARCHAR(100) UNIQUE,
+    Phone_number VARCHAR(50),
+    Email VARCHAR(255),
+    Experience_years INT
+);
+
 -- Inserting values
 
 Insert into Vehicles 
