@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|c:\\users\\dinesh g t\\source\\repos\\hospitalmanagementsystem\\main method\\mainmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|solutionrelative:main method\\mainmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|c:\\users\\dinesh g t\\source\\repos\\hospitalmanagementsystem\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|solutionrelative:entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|c:\\users\\dinesh g t\\source\\repos\\hospitalmanagementsystem\\entities\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|solutionrelative:entities\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|c:\\users\\dinesh g t\\source\\repos\\hospitalmanagementsystem\\entities\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDF77FBE-8A5C-435D-A4B3-9B1F5A8F803E}|HospitalManagementSystem.csproj|solutionrelative:entities\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Entities\\Patient.cs",
+              "RelativeDocumentMoniker": "Entities\\Patient.cs",
+              "ToolTip": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Entities\\Patient.cs",
+              "RelativeToolTip": "Entities\\Patient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:52:03.142Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Entities\\Doctor.cs",
+              "RelativeDocumentMoniker": "Entities\\Doctor.cs",
+              "ToolTip": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Entities\\Doctor.cs",
+              "RelativeToolTip": "Entities\\Doctor.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAwwCYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:52:18.956Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Entities\\Appointment.cs",
+              "RelativeDocumentMoniker": "Entities\\Appointment.cs",
+              "ToolTip": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Entities\\Appointment.cs",
+              "RelativeToolTip": "Entities\\Appointment.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:52:40.714Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Mainmethod.cs",
+              "DocumentMoniker": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Main Method\\Mainmethod.cs",
+              "RelativeDocumentMoniker": "Main Method\\Mainmethod.cs",
+              "ToolTip": "C:\\Users\\Dinesh G T\\source\\repos\\HospitalManagementSystem\\Main Method\\Mainmethod.cs",
+              "RelativeToolTip": "Main Method\\Mainmethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T06:55:21.534Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
