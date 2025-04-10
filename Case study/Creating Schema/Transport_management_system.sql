@@ -84,6 +84,14 @@ Values
 ('Force Traveller', 2000.00, 'Van', 'Under Maintenance'),
 ('Tata Prima', 25000.00, 'Heavy Truck', 'Available');
 
+-- Creating a new Table TripDrivers for managing trips..
+CREATE TABLE TripDrivers (
+    Trip_id INT,
+    Driver_id INT,
+    FOREIGN KEY (Trip_id) REFERENCES Trips(Trip_id),
+    FOREIGN KEY (Driver_id) REFERENCES Drivers(Driver_id),
+    PRIMARY KEY (Trip_id, Driver_id)
+);
 
 Insert into Routes 
 (Start_destination, End_destination, Distance)
@@ -122,3 +130,19 @@ VALUES
 (13, 4, '2025-03-22 10:00:00', 'Cancelled'),
 (14, 5, '2025-03-23 09:15:00', 'Confirmed');
 
+Insert into Drivers (First_name, Last_name, License_number, Phone_number, Email, Experience_years)
+Values
+('Gokul', 'Raj', 123, 4123421, 'gokul@gmail.com', 5);
+
+
+Select * From Vehicles;
+Select * From Trips;
+Select * From TripDrivers;
+Select * From Bookings;
+Select * From Drivers;
+Select * From Bookings;
+Select * From Passengers;
+Select * From Routes;
+
+Update Trips
+Set MaxPassengers = 10 Where Trips.Trip_id = 13;
