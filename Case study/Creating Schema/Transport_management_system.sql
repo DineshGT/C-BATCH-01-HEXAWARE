@@ -132,7 +132,13 @@ VALUES
 
 Insert into Drivers (First_name, Last_name, License_number, Phone_number, Email, Experience_years)
 Values
-('Gokul', 'Raj', 123, 4123421, 'gokul@gmail.com', 5);
+('Tom', 'Cruise', 124, 6485645324, 'Tom@gmail.com', 5),
+('Joseph', 'Vijay', 120, 456782145, 'vijay@gmail.com', 2),
+('Ajith', 'AK', 654, 48746254, 'ak@gmail.com', 5),
+('Salim', 'Ali', 234, 6485645324, 'Tom@gmail.com', 9);
+
+
+
 
 
 Select * From Vehicles;
